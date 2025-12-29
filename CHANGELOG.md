@@ -20,7 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [1.1.0] - 2025-01-07
+## [1.1.0] - 2025-12-29
 
 ### Added
 
@@ -86,7 +86,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [1.0.0] - 2025-01-06
+## [1.0.0] - 2025-12-28
 
 ### Added
 
@@ -168,7 +168,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Modular architecture: models, system, output packages
 
 ### Initial Release Info
-- **Date:** January 6, 2025
+- **Date:** December 28, 2025
 - **Version:** v1.0.0
 - **Status:** Production-ready
 - **Test Coverage:** 82%+
