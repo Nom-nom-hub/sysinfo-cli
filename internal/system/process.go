@@ -9,7 +9,7 @@ import (
 
 // GetProcessInfo returns top processes by CPU or memory usage
 func GetProcessInfo(sortBy string, limit int) ([]models.ProcessInfo, error) {
-	var processes []models.ProcessInfo
+	processes := make([]models.ProcessInfo, 0)
 
 	if runtime.GOOS == "linux" {
 		processes = getProcessesLinux()

@@ -36,8 +36,10 @@ func (f *Formatter) Format(data interface{}, command string) (string, error) {
 }
 
 func (f *Formatter) formatJSON(data interface{}) (string, error) {
-	var bytes []byte
-	var err error
+	var (
+		bytes []byte
+		err   error
+	)
 
 	if f.pretty {
 		bytes, err = json.MarshalIndent(data, "", "  ")

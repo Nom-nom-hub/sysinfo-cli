@@ -9,10 +9,7 @@ import (
 // GetDiskInfo returns disk/partition information
 // Platform-specific implementations in disk_unix.go and disk_windows.go
 func GetDiskInfo(mountPointFilter string) ([]models.DiskInfo, error) {
-	var disks []models.DiskInfo
-
-	// Call platform-specific function
-	disks = getDiskInfoPlatform()
+	disks := getDiskInfoPlatform()
 
 	if mountPointFilter != "" {
 		var filtered []models.DiskInfo

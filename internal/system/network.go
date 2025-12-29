@@ -8,7 +8,7 @@ import (
 
 // GetNetworkInfo returns network interface information
 func GetNetworkInfo() ([]models.NetworkInterface, error) {
-	var interfaces []models.NetworkInterface
+	interfaces := make([]models.NetworkInterface, 0)
 
 	ifaces, err := net.Interfaces()
 	if err != nil {
