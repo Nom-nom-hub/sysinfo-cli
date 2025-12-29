@@ -94,10 +94,6 @@ func getProcessesDarwin() []models.ProcessInfo {
 		cpuStr := fields[2]
 		cpuPercent, _ := strconv.ParseFloat(cpuStr, 64)
 
-		// Parse MEM% (field 3)
-		memStr := fields[3]
-		memPercent, _ := strconv.ParseFloat(memStr, 64)
-
 		// Parse RSS in KB (field 5)
 		rssStr := fields[5]
 		rssKB, err := strconv.ParseFloat(rssStr, 64)
@@ -162,4 +158,9 @@ func getProcessMemory(statusPath string) float64 {
 	}
 
 	return 0
+}
+
+// Stub for Windows (defined in process_windows.go)
+func getProcessesWindows() []models.ProcessInfo {
+	return []models.ProcessInfo{}
 }
