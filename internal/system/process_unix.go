@@ -1,3 +1,4 @@
+//go:build linux || darwin
 // +build linux darwin
 
 package system
@@ -6,7 +7,6 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"runtime"
 	"sort"
 	"strconv"
 	"strings"
