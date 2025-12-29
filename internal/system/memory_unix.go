@@ -21,7 +21,7 @@ func GetMemoryInfo() (*models.MemoryInfo, error) {
 	}
 
 	totalBytes := info.Totalram * unitSize
-	availBytes := info.Availableram * unitSize
+	availBytes := info.Freeram * unitSize
 	usedBytes := totalBytes - availBytes
 	swapTotal := info.Totalswap * unitSize
 	swapUsed := (info.Totalswap - info.Freeswap) * unitSize
