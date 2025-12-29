@@ -16,8 +16,10 @@ func main() {
 		os.Exit(1)
 	}
 
-	var data interface{}
-	var err error
+	var (
+		data interface{}
+		err  error
+	)
 
 	switch config.Command {
 	case "os":
