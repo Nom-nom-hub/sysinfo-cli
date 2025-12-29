@@ -215,9 +215,22 @@ MIT License - see LICENSE file for details
 
 ## Roadmap
 
-- [ ] `--watch` mode for real-time monitoring
-- [ ] Color output for tables
+### Completed (v1.1.0)
+
+- [x] `--watch` mode for real-time monitoring (`--watch --interval N`)
+- [x] Color output for tables (ANSI codes with `--color auto/on/off`)
+- [x] Enhanced CPU frequency detection (platform-specific parsing)
+- [x] Cross-platform process enumeration (Windows tasklist, macOS ps aux)
+
+### Planned for v1.2.0
+
+- [ ] Human-friendly uptime formatting (4d 2h 15m instead of seconds)
+- [ ] Shell completion scripts (bash/zsh/fish)
+- [ ] Configuration file support (~/.sysinforc)
+
+### Planned for v2.0.0
+
 - [ ] Additional OS support (Raspberry Pi, embedded systems)
 - [ ] Homebrew/Chocolatey package distribution
-- [ ] Shell completion (bash/zsh)
-- [ ] Human-friendly uptime formatting
+- [ ] Enhanced monitoring features (alerts, historical data)
+- [ ] Plugin system for custom commands
