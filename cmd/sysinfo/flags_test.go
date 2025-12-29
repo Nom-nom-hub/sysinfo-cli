@@ -6,11 +6,12 @@ import (
 
 func TestValidateValidCommand(t *testing.T) {
 	config := Config{
-		Command: "os",
-		Format:  "json",
-		SortBy:  "cpu",
-		Limit:   10,
-		Color:   "auto",
+		Command:       "os",
+		Format:        "json",
+		SortBy:        "cpu",
+		Limit:         10,
+		Color:         "auto",
+		WatchInterval: 1,
 	}
 
 	if err := config.Validate(); err != nil {
@@ -70,11 +71,12 @@ func TestValidAllCommands(t *testing.T) {
 
 	for _, cmd := range commands {
 		config := Config{
-			Command: cmd,
-			Format:  "json",
-			SortBy:  "cpu",
-			Limit:   10,
-			Color:   "auto",
+			Command:       cmd,
+			Format:        "json",
+			SortBy:        "cpu",
+			Limit:         10,
+			Color:         "auto",
+			WatchInterval: 1,
 		}
 
 		if err := config.Validate(); err != nil {
@@ -88,11 +90,12 @@ func TestValidAllFormats(t *testing.T) {
 
 	for _, fmt := range formats {
 		config := Config{
-			Command: "os",
-			Format:  fmt,
-			SortBy:  "cpu",
-			Limit:   10,
-			Color:   "auto",
+			Command:       "os",
+			Format:        fmt,
+			SortBy:        "cpu",
+			Limit:         10,
+			Color:         "auto",
+			WatchInterval: 1,
 		}
 
 		if err := config.Validate(); err != nil {

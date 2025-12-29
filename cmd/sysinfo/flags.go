@@ -8,15 +8,16 @@ import (
 
 // Config holds CLI configuration from flags
 type Config struct {
-	Command     string
-	Format      string
-	OutputFile  string
-	Pretty      bool
-	Watch       bool
-	SortBy      string
-	Limit       int
-	MountPoint  string
-	Color       string
+	Command      string
+	Format       string
+	OutputFile   string
+	Pretty       bool
+	Watch        bool
+	WatchInterval int
+	SortBy       string
+	Limit        int
+	MountPoint   string
+	Color        string
 }
 
 func parseFlags() Config {
@@ -26,6 +27,7 @@ func parseFlags() Config {
 	output := fs.String("output", "", "Output file (default: stdout)")
 	pretty := fs.Bool("pretty", false, "Pretty-print JSON")
 	watch := fs.Bool("watch", false, "Watch mode (continuous updates)")
+	interval := fs.Int("interval", 1, "Watch interval in seconds (used with --watch)")
 	sortBy := fs.String("sort", "cpu", "Sort processes by: cpu or memory")
 	limit := fs.Int("limit", 10, "Number of top processes to display")
 	mount := fs.String("mount", "", "Filter disk by mount point")
@@ -59,15 +61,16 @@ Flags:
 	}
 
 	return Config{
-		Command:    cmd,
-		Format:     *format,
-		OutputFile: *output,
-		Pretty:     *pretty,
-		Watch:      *watch,
-		SortBy:     *sortBy,
-		Limit:      *limit,
-		MountPoint: *mount,
-		Color:      *color,
+		Command:       cmd,
+		Format:        *format,
+		OutputFile:    *output,
+		Pretty:        *pretty,
+		Watch:         *watch,
+		WatchInterval: *interval,
+		SortBy:        *sortBy,
+		Limit:         *limit,
+		MountPoint:    *mount,
+		Color:         *color,
 	}
 }
 
@@ -95,6 +98,10 @@ func (c Config) Validate() error {
 
 	if c.Limit < 1 {
 		return fmt.Errorf("limit must be >= 1")
+	}
+
+	if c.WatchInterval < 1 {
+		return fmt.Errorf("interval must be >= 1")
 	}
 
 	validColors := map[string]bool{
