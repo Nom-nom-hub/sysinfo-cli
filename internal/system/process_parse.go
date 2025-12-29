@@ -39,10 +39,8 @@ func parseMemoryString(memStr string) float64 {
 	// Format: "12,345 K" or "1,234,567 K"
 	memStr = strings.TrimSpace(memStr)
 
-	// Remove " K" suffix
-	if strings.HasSuffix(memStr, " K") {
-		memStr = strings.TrimSuffix(memStr, " K")
-	}
+	// Remove " K" suffix (TrimSuffix handles missing suffix gracefully)
+	memStr = strings.TrimSuffix(memStr, " K")
 
 	// Remove commas
 	memStr = strings.ReplaceAll(memStr, ",", "")
