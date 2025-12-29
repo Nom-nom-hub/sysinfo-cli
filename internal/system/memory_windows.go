@@ -47,7 +47,6 @@ func GetMemoryInfo() (*models.MemoryInfo, error) {
 	totalGB := bytesToGB(memStatus.TotalPhys)
 	availGB := bytesToGB(memStatus.AvailPhys)
 	usedGB := totalGB - availGB
-
 	usagePercent := 0.0
 	if totalGB > 0 {
 		usagePercent = (usedGB / totalGB) * 100

@@ -41,7 +41,6 @@ func getDiskInfoWindows() []models.DiskInfo {
 		totalBytes := uint64(lpTotalNumberOfBytes)
 		availBytes := uint64(lpTotalNumberOfFreeBytes)
 		usedBytes := totalBytes - availBytes
-
 		usagePercent := 0.0
 		if totalBytes > 0 {
 			usagePercent = (float64(usedBytes) / float64(totalBytes)) * 100

@@ -58,7 +58,6 @@ func getDiskInfoLinux() []models.DiskInfo {
 		totalBytes := stat.Blocks * blockSize
 		availBytes := stat.Bavail * blockSize
 		usedBytes := totalBytes - availBytes
-
 		usagePercent := 0.0
 		if totalBytes > 0 {
 			usagePercent = (float64(usedBytes) / float64(totalBytes)) * 100
@@ -91,7 +90,6 @@ func getDiskInfoDarwin() []models.DiskInfo {
 		totalBytes := stat.Blocks * blockSize
 		availBytes := stat.Bavail * blockSize
 		usedBytes := totalBytes - availBytes
-
 		usagePercent := 0.0
 		if totalBytes > 0 {
 			usagePercent = (float64(usedBytes) / float64(totalBytes)) * 100
