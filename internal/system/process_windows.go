@@ -111,6 +111,7 @@ func parseMemoryString(memStr string) float64 {
 	return kb / 1024.0
 }
 
+// Stubs for non-Windows platforms (defined in process_unix.go)
 func getProcessesLinux() []models.ProcessInfo {
 	return []models.ProcessInfo{}
 }
@@ -118,3 +119,4 @@ func getProcessesLinux() []models.ProcessInfo {
 func getProcessesDarwin() []models.ProcessInfo {
 	return []models.ProcessInfo{}
 }
+
