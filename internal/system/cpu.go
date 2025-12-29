@@ -39,8 +39,7 @@ func GetCPUInfo() (*models.CPUInfo, error) {
 	}
 
 	// For demo: static frequency (production would use actual CPU frequency)
-	frequencyGHz := 2.4
-	// For demo: calculate approximate usage (would use real CPU stats in production)
+	frequencyGHz := 2.4 // For demo: calculate approximate usage (would use real CPU stats in production)
 	usagePercent := 0.0
 
 	return &models.CPUInfo{
