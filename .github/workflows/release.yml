@@ -63,7 +63,7 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: binaries
+        name: binaries-${{ matrix.goos }}-${{ matrix.goarch }}
         path: |
           sysinfo-*
 
@@ -77,12 +77,12 @@ jobs:
     - name: Download artifacts
       uses: actions/download-artifact@v4
       with:
-        name: binaries
+        path: artifacts
 
     - name: Create Release
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
       with:
-        files: sysinfo-*
+        files: artifacts/**/sysinfo-*
         draft: false
         prerelease: false
