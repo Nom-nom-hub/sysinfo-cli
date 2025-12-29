@@ -16,6 +16,7 @@ type Config struct {
 	SortBy      string
 	Limit       int
 	MountPoint  string
+	Color       string
 }
 
 func parseFlags() Config {
@@ -28,6 +29,7 @@ func parseFlags() Config {
 	sortBy := fs.String("sort", "cpu", "Sort processes by: cpu or memory")
 	limit := fs.Int("limit", 10, "Number of top processes to display")
 	mount := fs.String("mount", "", "Filter disk by mount point")
+	color := fs.String("color", "auto", "Color output: auto, on, or off")
 
 	fs.Usage = func() {
 		fmt.Fprintf(os.Stderr, `Usage: sysinfo <command> [flags]
@@ -65,6 +67,7 @@ Flags:
 		SortBy:     *sortBy,
 		Limit:      *limit,
 		MountPoint: *mount,
+		Color:      *color,
 	}
 }
 
@@ -92,6 +95,14 @@ func (c Config) Validate() error {
 
 	if c.Limit < 1 {
 		return fmt.Errorf("limit must be >= 1")
+	}
+
+	validColors := map[string]bool{
+		"auto": true, "on": true, "off": true,
+	}
+
+	if !validColors[c.Color] {
+		return fmt.Errorf("invalid color: %s (must be auto, on, or off)", c.Color)
 	}
 
 	return nil

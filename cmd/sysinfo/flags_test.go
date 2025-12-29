@@ -10,6 +10,7 @@ func TestValidateValidCommand(t *testing.T) {
 		Format:  "json",
 		SortBy:  "cpu",
 		Limit:   10,
+		Color:   "auto",
 	}
 
 	if err := config.Validate(); err != nil {
@@ -73,6 +74,7 @@ func TestValidAllCommands(t *testing.T) {
 			Format:  "json",
 			SortBy:  "cpu",
 			Limit:   10,
+			Color:   "auto",
 		}
 
 		if err := config.Validate(); err != nil {
@@ -90,6 +92,7 @@ func TestValidAllFormats(t *testing.T) {
 			Format:  fmt,
 			SortBy:  "cpu",
 			Limit:   10,
+			Color:   "auto",
 		}
 
 		if err := config.Validate(); err != nil {
